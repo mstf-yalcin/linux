@@ -1,0 +1,737 @@
+https://linux-dersleri.github.io/index.html
+https://devhints.io/bash
+https://lib.yemreak.com/programlama/yardimci/shell
+
+-man pwd,ls...
+
+-man -k xxx  xxx geçen komutları listeler.
+-apropos ls  içerisinde ls geçen komutlaır listeler.
+
+
+-man test kosul ifadeleri listeler.....
+
+-help pwd,ls...
+-pwd --help
+
+-whatis ls,pwd
+
+-whereis ls ls nerede oldugunu gosterir
+
+-ls listeler
+
+-ls -l  liste şeklinde izinlerle beraber gosterir. -> d directory   - -> dosyadır.
+
+-ls -h dosya boyutlarını birimleriyle gosterir.
+
+-ls -ah gizli dosyalar gosterir  a->all h->hidden
+>
+
+-ls -t zamana göre sıralar ----time
+-ls -R butun klasor alt icerigini de gosterir  ---Recursive
+-ls -r isime gore terseten sıralar ---reverse
+
+ls -F dosyaların ne oldugunu gosterir. 
+/ -> Directory 
+* -> executable 
+@ -> link  
+  ->hic bir şey yoksa dosyadır
+
+yeşil renk( çalıstırabilir demek)
+
+mavi renk dizin
+
+ls -d (gecerli dizini gosterir)
+
+ls -F (dizinleri listeliyor) hangi dizindeysen
+
+ls * (klasor altındaki dosyalar
+
+ls -g ozellıklı ls -l
+
+ls -r 
+
+ls -t en son kullanılan
+
+
+
+-pwd çalıstıgın dizin -print working directory
+
+-cd / root directory gider.
+
+-cd .. bir üst dizin 
+
+-cd - bir önceki dizin
+
+-whomai aktif kullanıcı
+
+-w login olmus kullanıcılar
+
+-uname -a linux dagıtımını gosterir
+
+-id userId
+
+-sudo + komut  root/admin yetkisi için kullanılır super user do 
+
+-cd home dizinine goturur.
+
+
+
+-sudo apt install xxx  dosya kurma
+
+-tasksel server için gerekli paketleri kurar. 
+
+
+-shutdown   
+-shutdown -c -> iptal
+-shutdown -h now -> direkt kapatmak. 
+-reboot yeniden başlat.
+
+
+-history 
+-history -c komut listesindeki geçmisi temizler
+
+-vi dosya_ismi
+
+vi içerisinde :w kaydetmek için 
+:q çıkmak için
+i basınca yazılır. 
+yazma modundan cıkmak için escape
+boş modda x ile sil.
+o alt satıra geçer
+shift+a satır sonuna gider
+:7  7. satıra gider.
+/test dokuman içerisinde test yazan yere gider. 2. geçen yer için // ?test geriye gider
+
+:q! yazmadan çık
+:w dosya ismi
+
+
+-touch dosya_ismi   dosya olusturur
+- > dosya_imsi dosya yoksa olusturur varsa üzerine yazar
+
+
+ -rwx rwx rwx 1.kullanıcı için 2. grup 3. herkes anlamına gelir
+ drwx-rx--x  dizin 1. kullanıcı rwx izinleri var grup için rx var herkes x izni var
+r read
+w write
+x execute
+
+-cat dosya_ismi dosya içerigini ekrana basmak
+
+-cat dosya_ismi | awk '{print $1}' awk komutu satırları tab veya boşlukları bolerek dize halinde listeler $1 $2 $3..... sütunlar
+-cat dosya_ismi | awk '{print $1"text"$2}' arasına text yazmak için
+-cat dosya_ismi | awk '{print NR $1"text"$2}' sıra numarası
+
+-cat dosya_ismi | awk 'BEGIN {FS=":"} {print $1}'  : -> ya gore parçalama yapacak FS-> file seperator 
+-cat dosya_ismi | awk 'BEGIN {FS=":"} {OFS="text"} {print $1,$2}' arasına text yazmka için OFS
+
+satır arasına ayraç için {ORS="ayrac.. 	"}
+
+
+-mkdir dizin oluşturma
+
+-cp dizin/dosyaAdı kopyalanacak_yer 
+-cp ../a.txt .  bir üst dizine git a.txt bul  .=> suanki directory kopyala
+-cp ../a.txt ./dosya_ismi  dosya ismini degistirerek kopyalar.
+-cp ../a.txt ../b.txt aynı dizine kopyalar
+-cp -r dizi kopyala
+-cp -i kopyalama yaparken sorar
+
+
+-mv dizin/dosya dizin/dosya dosya ismini degistrirerk te yazılabılır
+-mv test/a.txt b.txt
+-mv a.txt test/a.txt
+-mv -t dizin tasma
+
+-mkdir -p /dizin/dizin2 dizin iöerisine dizin eklemek için -p
+-rmdir -p  dizin/icerisinde dizin silmek için
+
+-ls -l dizin ismi
+
+
+-find directory(optinal) -name dizin_dosya adi
+-find ../ -name test   bir üst satıra cıkıp test ismindeki dizini arayacak
+-find ../ -name test*  test ile başlayan her şeyi getirecek.
+
+-find ~ -iname test iname ile harf duyarlılıgı ortadan kalkarak aratır.
+
+~ home directory demek 
+
+-find / -name dosya_dizin -type f veya d doya turunde ara
+-find / -name test -type d
+
+-find dizin -size 500 500kb olanları ara
+------------------------------------------
+/etc klasoru içerisinde kullanıcılar gozokuyor
+
+-cat paswd ile kullanıclaarı listeler
+mustafa:x:1000:1000:,,,/bash   1000 id 1000 grup id  bash 
+
+-adduser user_name
+
+-passwd kullanıcı_adı -> kullanıcı sifresi degistirilir.
+passwd kendı sifresni degistirir
+
+-su user_name kullanıcıyı degistirir switch user
+
+-deluser user_name kullanıcı silmek için
+
+-exit kullanıcıdan cıkar
+
+-chage -l user_name kullanıcı bilgileri
+
+-usermod -L user_name kullanıcı deactive lock
+-usermod -U user_name kullanıcı active unlock
+-usermod -aG grp_adi user_name gruba ekler
+
+-rm dosya_ismi
+
+-rm -r dizin_adi   ->recursive butun dızınler silinecek
+-rm -rf sormadan siler.
+
+
+---------------------------------
+
+
+
+group
+
+-addgroup grup_adı
+
+-cat /etc/group  -> grupları yazar
+
+-adduser user_id grup_id  gruba ekler.
+
+-deluser --group grup_ismi grup silmek için
+
+
+-gpasswd -a username grup gruba ekler  append
+-gpasswd -d username grup gruptan siler delete
+
+
+
+-groupdel grup_adi grubu siler
+-delgroup grup_adi grubu siler.
+
+---------------------------------
+root yetkisi için
+
+/etc/sudoers dosyasını duzenle
+
+root yetkisi için root ALL=(ALL) ALL kopyala
+user_name ALL=(ALL) ALL yeni satır yapıp ekle
+
+
+gruba root vermek için whell satırında kopyala
+%grup ALL(ALL) ALL satırını ekle
+ 
+
+
+el ile
+
+sudo mkhomedir_helper user_name el ile olusturulan kullanıcı için dizin olusturur.
+
+*********************
+
+Process
+
+-top çalısan process ler listeler.
+-top -o XX xx e gore sıralar -top -o PID veya %CPU
+
+-ps -> shell de calısan processleri listeler
+
+-ps aux çalısan sistemdeki bütün processler
+
+-ps aux | grep  program_adı -> çalısan process bulur -> px aux çalısan processler listelendi | çıktı üzerinde grep ile arama yaptı.
+
+-ps -ef butun processler gorunur
+
+-pstree hiyerarsik sekilde listeler 
+-pstree -p id li sekilde 
+
+-kill -9 process_Id id ile kapat -9 force
+-killall process_adi ile kapat
+
+
+
+********
+proces
+
+man 7 signal
+
+--------------------
+r=4 w=2 x=1
+
+chmod xyz   x->kullanııc için ->grup z->herkes
+chmod 754   kullanıcı->icin hespi  grup-> oku calıstır herkes=read
+
+
+-chgrp grup_ismi dosya_adi dosya grubu degistirirS
+-chgrp -R grup_ismi dosya_adi alt klasorler degistirmek içini -R
+
+-chown user dosya  dosyayı kullanıcıya atadı. change owner
+-chown user:group dosya seklinde de kullanılabilir.
+
+
+---------------
+
+-ifconfig -> ip adress gosterir interface config
+-ping www.google.com
+
+-route -n modem ip adresi
+
+-nslookup dns sorguları yapar. isimden ip adresi verir  
+ ->server =>kendi adresin	 
+
+--traceroute site_ad  ->o site giderken gecilen yolların ip verir
+
+sudo apt install ifupdown
+ifdown isim   agı kapatır
+ifup isim agı açar
+
+
+-service network-manager stop interneti devredisi
+-service network-manager start
+
+
+-netdiscover ağdaki aktif baglı cihazları gosterir.
+
+-file dosyaAdı_Veya.Dizin dosya bilgileri.
+
+-less dosya_adi dosyayı parca parca ekrana yazar.
+
+-!! son calıstıralan komutu calıstırır
+-!history_id !5 sırdakı kodu calıstırır
+
+
+****alias
+-alias yapılan takma adları gosterir
+-alias l="ls -l" l yazınca ls -l calısacak
+-unalias l alias siler
+ 
+
+-echo tek satır cıktı
+-echo "asdad" > x.txt  -> x.txt üzerine yazar yazar.
+
+-echo "asdad" >> x.txt  -> x.txt ekler yazar yazar.
+
+-cat > x.txt  üzerine yazar.
+-cat >> x.txt  ekleyip yazmak için yazar.
+  
+
+-ls -al | less parça parça almak için
+-ls | tee x.txt dosyaya yazar.
+
+---link
+
+ln -s file_name link_name ->soft link dosya tasındaıgında baglantı kopar.
+
+ln file_name link_name ->hardlink baglantı kopmaz birbirinin benzerdiri.ikiz. yapılan degısıklık bırbırıne yansır.
+
+unlink dosya_adi
+
+echo #PATH
+
+dosya içeriklerini
+
+-head /dosya ilk 10 satırı listeler
+-head -n 15 dosya ilk15 satır.
+
+-tail /dosya son 10 satır
+
+-sort /dosya sıralar.
+
+- sort < a.txt  > sorted.txt -> dosya içerigini sıralar sonrasında kaydeder.
+
+-uniq /dosya 
+-uniq -c dosya tekrar sayısını verir. count
+-uniq -u sadece 1 kez tekrar edenleri listeler.
+-uniq -d 1 den fazla tekrar edenleri getitir. duplicate.
+
+-wc /dizin/dosya kac satır kac kelime gosterir. satır kelime karakter
+-wc -l kac satır -> line
+-wc -w kac kelime ->w
+-wc -c kac karkater ->c
+
+-nl dizin/dosya satırları numaralandırır.
+-cat -n ile dizin/dosya satır numaralandır.
+
+-grep dosya içerisinde arama yapar
+-grep aranan /dizin/dosya
+-grep -i aranan /dizin/dosya kelime hassasiteyini kapatır.
+
+not= -i harf duyarlılıgını ortadan kaldırır
+
+-locate dizin veya dosya  konumunu getirir.Db den arama yapar.  find normal arama yapar.
+-updatedb yapılmalı............. veya restart
+-locate -i dosya_dizin buyuk kucuk kaldırır.
+
+
+not: komut | komut2 | komut3  ilk komutun cıktısını obur tarafa aktarır. sonra komutu yazar
+-ls -l | less | nl  parçalayıp numaralandırdı
+-ls -l | head | nl ilk 10 satır numaralandırdı
+
+
+------------
+df diski gosterir
+df -h gb olarak gosterir
+
+du -h toplam klasor boyutu gosterir
+
+sudo fdisk -l
+
+lsblk bloklar halınde diski gosterir
+
+
+-echo  $SHELL bulunan shell i gosterir.
+
+-hostname bilgisayar ad 
+-lsb_release -r -a sürün hakınında  bilgiler
+
+-uptime sistemin ne zamandır aktif oldugunu
+
+-cal tarih getitir -cal 1990
+-date
+
+
+– : regular file
+d : directory
+c : character device file
+b : block device file
+s : local socket file
+p : named pipe
+l : symbolic link
+
+/etc/passwd kullanıcılar
+/etc/group gruplar
+/etc/shadow şifreler
+
+*******************zip
+tar sıkıştırmadan arsiv yapar
+
+-tar -cf x.tar dizin_dosya cf=create file
+-tar -cf x.tar ./* bulunan yerdeki tüm dosyaları arsivleyecek veya *
+-tar -cvf x.tart dizin  -v verbose geri bildirim.
+
+-tar -tvf dosyaları listeler.
+
+
+-tar -xf x.tar arsivi açar xf=extract file
+-tar -xvf x.tar -C dosya_yolu  farklı bir path dosyayı acmak için kullanılır.
+
+
+-tar -zcf x.tar.gz dizin_doyas  sıkıstırarak arsiv yapar. 
+-tar -zxf x.tar.gz dosyayı açar.
+
+
+-gzip -1 veya -9 arası dosya dosyayı boyutunu dusurerek sıkıtırı.
+-gunzip dosya_
+
+
+-bzip2 dosya. sıkıstırır.
+-bunzip2 dosya cıkarır.
+
+
+-zip -r  x.zip dosya_yol  dosya veya dizin sıkıstırır.
+-unzip dosya_ismi
+
+********************** 	
+
+-dpkg -l kurulu paket listesi
+
+-apt remove paket_adi paketi kaldırır
+
+*****
+gedit
+mousepad
+leafpad
+
+***
+/var/log log kayıtlarının tututldu yer
+
+***
+
+etc -> config dosyalarının oldugu yer.
+mnt -> mount cd rom veya disk
+var -> logların oldgu kısım
+sys -> system modulleri
+bin -> binary sistem dsoyaları. komut dosyaları
+dev -> device 
+tmp ->temp
+
+***************
+
+vi editör
+1.Menü (Menu)
+2.Text (Metin) = Yazı modu
+
+İlk ekran Menü modu ile açılır. Daha sonra yazı moduna ESC + i, a ve o ile geçilebilir.
+
+i -- insert
+a -- append
+o -- open
+
+Silme, geriye alma, aşağı satıra geçmek için tekrar yazı modundan ESC ile Menü 
+moduna geçilir.
+
+ESC+a ile sağ tarafa bir karakter ilerler.
+ESC+o ile alt satıra geçilir.
+ESC+x ile silme işlemi yapılır.
+ESC+5+x ile 5 karakter soldan sağa doğru siler.
+ESC+DD ile ilgili satır silinir.
+ESC+5+DD ile yukardan aşağıya 5 adet satır siler.
+ESC+u (Bir defaya mahsus geri getirir.)
+ESC+Y+Y+P
+ESC+2+Y+Y+P
+
+k--Yukarı (up)
+j--Aşağı (down)
+h--sol (left)
+l--sağ (right)
+
+***************************
+
+mount
+
+sudo mount /dev/sda1 /dizin   sda1 sda2 sdb1 değiskenlik gosterir. oluşturulan diske gore.
+
+sudo fdisk /dev/disk_adi 
+
+
+*****************************
+sifre işlemleri
+
+/etc/security/pwquality.conf içerisinde
+
+-authconfig --passminlen=10 --update yaz.
+
+-pwscore
+
+/etc/security/pwquality.conf içerisinde
+minclass = 1  türü ifade eder buyuk,kucuk,sayı,ozel karkater vs.
+maxrepeat = 0 tekrar eden ifade aabb ... 0 hic
+maxclassrepeat = 0 tekrar decek tür sayısı qqAA11 0 hic
+lcredit = 0 lower case karkater sayısı  -1 en az 1
+dcredit = 0 digit carakter sayısı   -
+ocredit = 0 özel karakter sayısı
+not = -1 yazılırsa en az 1 karakter eklenmeli
+lcredit = -1 en az 1 tane lower olmalı
+ucredit = 0 upper case karakter sayısı
+
+***************************************************************************************************************************************************************
+/etc/shells
+
+#!/bin/bash
+
+./dosya.sh ile dosya calıstırılır.
+
+dosyayı bin dizinine kopyalarsak. bütün dizinler ismiyle calıstırılabilir.
+
+değiskenlere $ ile ulasılır.
+
+ad=test
+sayi=15
+echo $ad
+echo $sayi
+
+*****************************************
+
+saniye-dakika-saatler büyük harfle S=second  M=Minute H=Hour
+saniye=$(date +%S) saniyeyi alır
+dakika=$(date +'%M') dakika alır
+saat=$(date +"%H") saat alır
+tek veya cift tırnak farketmez
+
+
+gün-ay-yıl da ise kucuk harfler  d=day  month=m  yer=y
+gün=$(date +%d) gün alır
+ay=$(date +%m) ay alır
+yıl=$(date +%y) yıl alır  20 olarak cıkar
+yıl=$(date +%Y) yıl alır  2020 olarak cıkar
+
+
+
+***************************************
+
+read degisken  -> ile dısarıdan bilgi oku
+
+read -p "text" degisken  tek satırda degisken alma
+read -sp "sifreniz" sifre  şifre almak için. silent
+
+degisken ismi girmeden almak için
+read 
+echo $REPLY 
+
+
+--arg olarak almak için  
+read -a degisken
+echo ${degisken[0]} ${degisken[1]}.....
+
+
+$1,$2,$3...... bu ifadeler fonk parametresi gibi kullanılır. script calıstırınca ynaındaki ifadeleri alır
+$0 script ismidir.
+
+./script.sh deger1 deger2 deger3.... bu ifadeleri almak için kullanılır.
+
+
+
+$# girilen parametre sayısını verir.
+$* $@ gibi parametreleri gosterir. ama $@ array halinde tutar.
+
+$@ bütün ifadleri alır. $1,$2,$3....
+
+array=("$@") ile alınan degiskenler array e cevrilir.
+
+
+komutları calısrabilmek için /bin/ yazılmalı. komutlar /bin dizinini içerisinde
+
+/bin/ls -l 
+
+
+---------------
+date;who   ->; ile birden fazla komut calıstırabilir.
+
+ls -l /bin/etc a*  a harfiyle baslayan sonrası onemsiz
+ls -l  /bin/etc ?? herhangi 2 karkterli olan dosya ve klasor listele
+ls -l /bin/etc[ab]* a veya b ile başlayan sonrası onemsiz
+ls -l /bin/etc[^u] u ile başlamayanlar
+
+
+touch file file{1..10}.txt  1 den 10 a kadar devam edecek fil1.txt file2.txt......
+
+echo {1..10} 1 2 3 4....
+echo {01..5} 01 02 03....
+
+echo {a,b,c}{1..3} a1 a2 a3 b1 b2 b3....c1... sırayla birbirini eşler..
+
+
+*******************************************
+servisler
+
+-service --status-all
+-service servis_adi status 
+-service servis_adi start 
+-service servic_adi stop 
+-service service_adi restart 
+
+-systemctl --status-all butun servisleri listeler çalısan
+-systemctl status servis_adi servis durumunu gosterir
+-systemctl stop servis_adi
+-systemctl start servis_adi
+-systemctl restart servis_adi 
+
+***********************************************
+crontab.guru zaman işlemleri için site
+ 
+/etc/crontab içerisine kodu ekle
+
+yada saatlik aylık gunluk haftalık klasor içerisine dosyayı at. cron.daily cron.hourly ...... ls -l /etc/cron*
+
+***************
+***Curl
+curl url -o dizin/dosya_adi api istek.
+
+$(curl https://catfact.ninja/breed\?limit\=10)
+
+curl -s --head -w %{http_code} url -> cıktının headerini getirir.
+
+head -1 -> 1.
+
+
+*********************
+cut kullanımı.
+
+-cut -d , -f index_     delimetter ","-":"... -> parçalanacak karater secilir. parcalanan ifadenin indexi alınır 
+***********************
+
+-e exit dosya mecvut (ozel dosya)
+-f dosya mevcut ve regular file ?(genel dosyalar)resim,okunabilen (file)(klasor kontrolu yapmıyor..)
+-s dosya icerigi dolu
+-d klasor oldugu (directory)
+-r read okunabilir
+-w write yazılabilir
+-x execute calıstırabilir
+
+
+case icerisinde 
+kosul a [0-9] kume belirtip 0 ve 9 arası girecek
+[a-z] a ve z arası [a-z] | [A-Z] kucuk ve buyuk a-z girilirse kosulu. kume kontrolu. tek karakter kontrolu yapar
+
+? ) ozel karakter !
+
+
+*****************************
+
+
+find /arana dızın -name dosya_ismi
+
+find /(kok dızın oldugu ıcın herseye bakacak -name deneme.sh
+find / -name deneme.sh
+
+find /home/mustafa/Desktop -name deneme.sh
+
+find / -size 500  500byte olanları aradı
+
+find / etc d   dosya olanları arayacak (d)
+
+find sistemden arıyor
+
+database ındexsıne kayıtlı olmalı
+locate database den kontrol ettıgı update edılmelı
+updatedb yazılır oncelıkle
+sonra locate dosya_adi
+
+
+
+
+**************************
+set ile kayıtlı degiskenleri listele
+	 	 
+strin ifade
+
+kalıcı degisiklik yapmazlar.
+{string:5:7} 5. karakterden başla 7 karakter al
+
+{string/ilk/degistirilecek}  ifadeyi degistirir
+
+{string%ifade} -> string değerin sonunda yazılan ifade mevcutsa siler.
+-----------------------------------
+
+-export degisken="deger" ilgili terminaldeki script dosyasına $degisken ifadesi kullanılabilir..
+
+-export $PATH="/scriptin_oldugu_konum:$PATH" ->script istedinel konumdan calıstırılır.
+
+
+$? -> 0 dan farklı ise yazılan komut hatalı işlenmiş demektir. 
+
+-time komut -> komutun ne kadar surede calıstıgını gosterir.
+
+
+-diff dosya1 dosya2 iki dosya farkını soyler.
+-diff -u dosya1 dosya2 dosyaların hangısı oldugunu soyler.
+
+-md5sum dosya -> dosyanın hashlanmiş halininin cıktısını verir. dosya dogrulama için kullan.
+
+-md5sum -c dosya -> dosya içerisinde hashlenmiş cıktı olmalı.
+
+**********************************
+-wget link -> dosya indidr.
+-wget -c http.... yarım kalan dosyaya devam
+-wget -m http... siteyi koyapalr.
+
+***********************
+Sticky Bit
+
+c	hmod o+t /tmp
+
+Sticky Bit daha çok ortak kullanım alanlarında kullanılan bir özellik.
+ Örnekle açıklamak gerekirse /tmp dosyası tüm kullanıcıların dosya yazabileceği ve okuyabileceği geçici dizindir.
+Fakat kullanıcılar sadece kendi oluşturdukları dosyaları silebilir.
+ Tüm dosyalara müdahale etme yetkisi sadece root kullanıcısındadır. Bunu sağlayanda sticky bit özelliğidir.
+
+
+*********************
+
+not 
+
+$( ls -l | grep $1 ) -> $() ifadeler işlenebilir.

@@ -1,0 +1,97 @@
+git
+
+-git config --global user.email " ..."
+-git config --global user.name " ..."
+
+-git init -> git oluştur. 
+ 
+-git add /dizin
+-git add . -> dizinde bulunan dosyaları repository ekler.
+
+her yeni dosyada git add yeni_dosya yazılmalı.
+
+-git commit -m "text_message_ ilk commit"
+
+-git log -> versiyonları listeler.
+
+-git status -> projede degisiklik yapıldı mı onu soyler.
+
+-git diff -> dosyalardaki degisiklikleri soyler. bütün
+-git diff dosya_adi -> dosya_adi nin degisiklerini gosterir
+
+*****local staged area commit
+
+*****git add ile staged area ya gider sonrasında git commitle yeni versiyon olarak kayededilir.
+
+staged area daki degisikleri gormek için
+
+-git diff -staged
+
+*****silinen dosyayı staged a geçirmek için
+
+-git rm dosya_adi -> git add dosya_adi da kullanılabilir. sonrasında git commit
+
+******dosya tasıma
+
+-git mv dosya_adi yenidizin/dosya_adi -> sonrasında git commit
+
+
+silinen dosyayı geri getirme
+
+-git checkout -- dosya_adi -> dosya lokalde ise
+-git checkout dosya_adi
+-git checkout . -> butun hepsi
+
+
+geçil bolgesinde staged da silinmiş ise
+
+-git restore --staged dosya_adi sonrasında
+
+-git restore dosya_adi
+-git resotre . -> hepsi için
+
+--------------- branck
+-git branch -> dalları listeler
+
+-git branch --all uzak sunucudakileri de listeler
+
+-git branch dal_  -> yeni dal oluştutur.
+
+-git check out dal_ -> dal_ geçildi.
+
+
+---merge için
+
+git merge dal_adi
+
+---------------------
+
+----versiyon degistirme
+
+-git checkout hash_kodu -- .
+-git checkout hash_kodu -- dosya_adi -> . yerine dosya_adi yazılırsa sadece o dosya o versiyona geçer.
+
+
+
+
+
+------------------github
+
+git remote add takma_ad url 
+git remote ile kontrol et. 
+
+git push -u takma_Ad master 
+
+
+.gitignore dosyası yüklenmesi istemeyen dosyaların ismini yaz
+
+!dosya1 -> gitignore içerisine yazıldıgında dosya1 i dahil etme demek.
+
+
+---bracnh
+
+
+git pull -> dosyaları çeker.
+
+
+
